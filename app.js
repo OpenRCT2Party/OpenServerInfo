@@ -6,7 +6,7 @@ app.get('/:ip\::port(\\d+)/', function (req, res){
   requestGameInfo(res, req.params.ip, req.params.port);
 });
 
-app.listen(8080);
+app.listen(process.env.PORT || 8080);
 
 var requestGameInfo = function requestGameInfo(res, address, port) {
   var netComGI = new Buffer([0, 4, 0, 0, 0, 9]);
